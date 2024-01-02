@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <header>
+      <a class="home" id="home" href="/contacts">Home</a>
+      <a class="add" id="add" href="/contacts/create">Add Contact</a>
+    </header>
     {% block head %}{% endblock %}
   </head>
   <body>

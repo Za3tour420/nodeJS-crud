@@ -1,19 +1,19 @@
 {% extends 'layout.twig' %}
 
 {% block head %}
-  <link rel="stylesheet" href="/css/updateContact.css">
+  <link rel="stylesheet" href="/css/addUpdateContact.css">
 {% endblock %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  <div>
+<div class="update-contact-form">
+  <h2>Update Contact</h2>
   <form action="/contacts/update/{{contact.id}}" method="POST" >
-  <label for="FullName">Full Name</label>
-  <input type="text" id="FullName" name="FullName" placeholder="Add a full name" value="{{contact.FullName}}" />
-  <label for="Phone">Phone Number</label>
-  <input type="number" id="Phone" name="Phone" placeholder="Add a phone number" value="{{contact.Phone}}" />
-  <input type="submit" value="Save" />
+    <label for="FullName">Full Name</label>
+    <input type="text" id="FullName" name="FullName" placeholder="Add a full name" value="{{contact.FullName}}" />
+    <label for="Phone">Phone Number</label>
+    <input type="number" id="Phone" name="Phone" placeholder="Add a phone number" value="{{contact.Phone}}" />
+    <input type="submit" value="Save"/>
+    <a href="/contacts" class="cancel-link">Cancel</a>
   </form>
-  </div>
+</div>
 {% endblock %}

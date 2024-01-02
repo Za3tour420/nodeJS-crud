@@ -3,33 +3,22 @@
 {% block head %}
   <link rel="stylesheet" href="/css/contacts.css">
   <script src="/js/searchContacts.js" defer></script>
+  <header>
+  </header>
 {% endblock %}
 
 {% block body %}
   <h1>{{ title }}</h1>
-  <p>Welcome to {{ title }}</p>
-  
-  <div>
-    <h2>Add contact</h2>
-    <form action="/contacts/create" method="POST">
-      <label for="FullName">Full Name</label>
-      <input type="text" id="FullName" name="FullName" placeholder="Add a full name"/>
-      <label for="Phone">Phone</label>
-      <input type="text" id="Phone" name="Phone" placeholder="Add a phone number"/>
-      <input type="submit" value="Save" />
-    </form>
-  </div>
 
   <div class="search-bar">
     <form action="/contacts/search" method="GET">
-      <label for="search">Search</label>
-      <input type="text" id="search" name="search" placeholder="Search by name or phone" onkeyup="searchContacts()"/>
+      <input type="text" id="search" name="q" placeholder="Search by name or phone" onkeyup="searchContacts()"/>
     </form>
   </div>
     
   <div class="table-container">
     <h2>Contact list</h2>
-    <table class="contact-table">
+    <table class="contact-table" id="contactTable">
       <thead>
         <tr>
           <th>Full Name</th>
@@ -38,16 +27,22 @@
         </tr>
       </thead>
       <tbody>
-        {% for contact in contacts %}
+        {% if contacts is defined and contacts|length > 0 %}
+          {% for contact in contacts %}
+            <tr>
+              <td>{{ contact.FullName }}</td>
+              <td>{{ contact.Phone }}</td>
+              <td>
+                <a href="/contacts/update/{{contact.id}}" class="btn-update">Update</a>
+                <a href="/contacts/delete/{{contact.id}}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
           <tr>
-            <td>{{ contact.FullName }}</td>
-            <td>{{ contact.Phone }}</td>
-            <td>
-              <a href="/contacts/update/{{contact.id}}" class="btn-update">Update</a>
-              <a href="/contacts/delete/{{contact.id}}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</a>
-            </td>
+            <td colspan="3">No contacts found</td>
           </tr>
-        {% endfor %}
+        {% endif %}
       </tbody>
     </table>
   </div>

@@ -1,0 +1,87 @@
+/* Reset some default styles for better consistency */
+body, h1, h2, p, form, label, input {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Styles for the header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Styles for header links */
+header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+header a:hover {
+  background-color: #555;
+}
+
+/* Add some padding to the body */
+body {
+  padding: 20px;
+}
+
+/* Common styles for form elements */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.cancel-link {
+  background-color: #aaa;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.cancel-link:hover {
+  background-color: #888;
+}
