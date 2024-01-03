@@ -44,7 +44,7 @@ async function createContact(req, res, next) {
     const { Contact } = (await db()).models;
     const { FullName, Phone } = req.body;
 
-    if(findContactByDetails(FullName, Phone)) {
+    if(await findContactByDetails(FullName, Phone)) {
       return res.status(409).json({ error: 'Contact already exists!' });
     }
 
@@ -103,7 +103,7 @@ async function updateContact(req, res){
     contactToUpdate.Phone = Phone;
 
     // Check if new data coincide with existing data
-    if(findContactByDetails(FullName, Phone)) {
+    if(await findContactByDetails(FullName, Phone)) {
       return res.status(409).json({ error: 'Contact already exists! Please enter new data' });
     }
 
